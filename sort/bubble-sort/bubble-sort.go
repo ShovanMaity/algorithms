@@ -17,3 +17,15 @@ func bubbleSort(array []int64) []int64 {
 	}
 	return array
 }
+
+func recursiveBubbleSort(array []int64, n int) {
+	if n == 1 {
+		return
+	}
+	for i := 0; i < n-1; i++ {
+		if array[i] > array[i+1] {
+			array[i], array[i+1] = array[i+1], array[i]
+		}
+	}
+	recursiveBubbleSort(array, n-1)
+}
