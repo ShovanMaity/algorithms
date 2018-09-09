@@ -1,6 +1,10 @@
 package samplepackage
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func Test_binarySearch(t *testing.T) {
 	tests := []struct {
@@ -37,9 +41,7 @@ func Test_binarySearch(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			actualValue := binarySearch(tt.array, 0, len(tt.array)-1, tt.key)
-			if tt.expectedValue != actualValue {
-				t.Errorf("expected %v got %v", tt.expectedValue, actualValue)
-			}
+			assert.Equal(t, tt.expectedValue, actualValue)
 		})
 	}
 }
